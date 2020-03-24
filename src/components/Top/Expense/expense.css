@@ -1,0 +1,20 @@
+.expense {
+    width: 10rem;
+    height: 3rem;
+    background-color: #bf360c;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.expense span {
+    font-size: 1.2rem;
+}
+.expense>span:last-child{
+    display: inline-block;
+    color: #fff;
+    margin-left: .5rem;
+}

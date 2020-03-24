@@ -1,0 +1,16 @@
+.top {
+    height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../../images/back.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-top: 1rem;
+  }
+
+  .income-expense-container {
+    margin-top: 2.3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,9 @@
+.income-expense-list-container {
+    width: 80%;
+    margin: .6rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-gap: .5rem;
+    padding-left: 1.5rem;
+}

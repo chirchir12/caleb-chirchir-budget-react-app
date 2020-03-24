@@ -1,0 +1,16 @@
+.income-list-container h2 {
+    text-align: center;
+    color: hsl(187, 100%, 42%);
+    font-weight: 300;
+}
+.income-list-container ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.income-item {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
