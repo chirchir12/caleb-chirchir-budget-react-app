@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 
 import './totalincome.css'
+import { BudgetContext } from '../../../context/BudgetContext'
+
 export default function TotalIncome() {
+    const {total} = useContext(BudgetContext)
     return (
         <div className="total-budget">
-            <span>-0.00</span>
+            <span>{total}</span>
         </div>
     )
 }
