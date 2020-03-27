@@ -20,34 +20,54 @@ export default function BudgetContextProvider(props) {
         setexpense([...expense, {title, value, id:uuid()}])
 
     }
+
     const deleteIncome = (id) => {
         setincome(income.filter(item => item.id !==id))
 
     }
     const deleteExpense = (id) => {
-        setexpense(income.filter(item => item.id !==id))
+        console.log(expense)
+        console.log(totalExpense)
+        setexpense(expense.filter(item => item.id !==id))
 
     }
 
+
     
-       function totalIncomeValue(value) {
-        settotalIncome(totalIncome + value)
-       }
+    //    function totalIncomeValue(value) {
+    //     settotalIncome(totalIncome + value)
+    //    }
+
+    useEffect(()=>{
+        if(income.length>0) {
+            settotalIncome(income.map(item=>item.value).reduce((total, cur)=>total+cur))
+        }
+
+    }, [income])
+
+    useEffect(()=> {
+        if(expense.length>0) {
+            settotalExpense(expense.map(item=>item.value).reduce((total, cur)=>total+cur))
+        }
+
+    }, [expense])
+
+    useEffect(()=>{
+        if(totalIncome>0 ||totalExpense>0 ) {
+            settotal(totalIncome-totalExpense)
+        }
+    }, [totalIncome, totalExpense])
       
 
-       function totalExpenseValue(value) {
-        settotalExpense(totalExpense + value)
-       }
+
     
-      function availableIncome(income,expense) {
-          settotal((total+income)-expense)
-      }
+      
    
   
 
     return (
         <BudgetContext.Provider value={
-            {income, totalExpense, totalIncome, expense, total,addExpense, deleteExpense,addIncome, deleteIncome,totalIncomeValue,totalExpenseValue,availableIncome}}>
+            {income, totalExpense, totalIncome, expense, total,addExpense, deleteExpense,addIncome, deleteIncome}}>
 
             {props.children}
         </BudgetContext.Provider>
