@@ -8,8 +8,8 @@ export default function BudgetContextProvider(props) {
     const [income, setincome] = useState([])
     const [expense, setexpense] = useState([])
     const [total, settotal] = useState(0)
-    const [totaIncome, settotalIncome] = useState(0)
-    const [totaExpense, settotalExpense] = useState(0)
+    const [totalIncome, settotalIncome] = useState(0)
+    const [totalExpense, settotalExpense] = useState(0)
 
     const addIncome = (title, value) => {
         setincome([...income, {title, value, id:uuid()}])
@@ -28,15 +28,26 @@ export default function BudgetContextProvider(props) {
         setexpense(income.filter(item => item.id !==id))
 
     }
-    // useEffect((prev)=> {
-    //     settotalIncome()
-    // })
 
+    
+       function totalIncomeValue(value) {
+        settotalIncome(totalIncome + value)
+       }
+      
+
+       function totalExpenseValue(value) {
+        settotalExpense(totalExpense + value)
+       }
+    
+      function availableIncome(income,expense) {
+          settotal((total+income)-expense)
+      }
    
   
 
     return (
-        <BudgetContext.Provider value={{income, totaExpense, totaIncome, expense, total,addExpense, deleteExpense,addIncome, deleteIncome}}>
+        <BudgetContext.Provider value={
+            {income, totalExpense, totalIncome, expense, total,addExpense, deleteExpense,addIncome, deleteIncome,totalIncomeValue,totalExpenseValue,availableIncome}}>
 
             {props.children}
         </BudgetContext.Provider>

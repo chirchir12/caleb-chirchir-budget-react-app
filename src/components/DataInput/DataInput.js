@@ -8,18 +8,28 @@ export default function DataInput() {
     const [value, setValue] = useState('')
     const [type, setType]  = useState('inc')
 
-    const {addExpense, addIncome} = useContext(BudgetContext)
+    const {addExpense, addIncome,totalIncomeValue, totalExpenseValue, availableIncome} = useContext(BudgetContext)
 
     const handleSubmit =(e) => {
         e.preventDefault()
+        let income = 0
+        let expense = 0
         if(type==='inc') {
             //function add incom
             addIncome(title, value)
+            totalIncomeValue(value)
+            income = income + value
             
         }else {
             // fncttion add expense
             addExpense(title, value)
+            totalExpenseValue(value)
+            expense = expense + value
         }
+       
+        availableIncome(income,value)
+       
+
         setType('')
         setTitle('')
         setValue('')
@@ -48,7 +58,7 @@ export default function DataInput() {
                 </div>
 
             </form>
-
+          
         </div>
     )
 }

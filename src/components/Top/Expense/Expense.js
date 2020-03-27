@@ -4,11 +4,11 @@ import {BudgetContext} from '../../../context/BudgetContext'
 
 
 export default function Expense() {
-    const {totaExpense} = useContext(BudgetContext)
+    const {totalExpense} = useContext(BudgetContext)
     return (
         <div className="expense">
-            <span>Expense</span>
-            <span>-{totaExpense}</span>
+            <span>Total Expense</span>
+            <span>-{totalExpense}</span>
 
         </div>
     )
