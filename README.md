@@ -1,6 +1,6 @@
 ## PROJECT: Budget-App in React
 
-this is a simple react applicaton to help manage a given budget. A user can enter either income or expense and the total budget will be reflect. user can also delete either income or expense and the correct total budget will be reflected.
+this is a simple react applicaton to help manage a given budget. A user can enter either income or expense and the total budget will be reflected. user can also delete either income or expense and the correct total budget will be reflected.
 
 ## initial screen
 
